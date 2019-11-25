@@ -1,31 +1,72 @@
 {
-  "name": "wg-overlord",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.2.0"
-  },
+  "name": "react-typescript-bootstrap-webpack-starter",
+  "version": "0.0.1",
+  "description": "A basic starter for a project build with ReactJS, Typescript, Webpack and Bootstrap",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "clean:all": "npm cache clean && npm run clean:dist && rimraf node_modules",
+    "clean:dist": "rimraf dist && rimraf lint-reports",
+    "build:dev": "npm run clean:dist && webpack --env=dev --progress --profile --colors --display-error-details --display-cached",
+    "build:prod": "npm run clean:dist && npm run test && webpack --env=prod --progress --profile --colors --display-error-details --display-cached",
+    "start": "webpack-dev-server --env=dev --progress --profile --colors",
+    "test": "karma start --no-auto-watch --single-run",
+    "test:watch": "karma start --auto-watch --no-single-run"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/szerhusenBC/react-typescript-bootstrap-webpack-starter.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "keywords": [
+    "react",
+    "reactjs",
+    "typescript",
+    "webpack",
+    "webpack2",
+    "bootstrap",
+    "less",
+    "starter"
+  ],
+  "author": "Stephan Zerhusen",
+  "license": "MIT",
+  "dependencies": {
+    "react": "~15.4.2",
+    "@types/react": "~15.0.20",
+    "react-dom": "~15.4.2",
+    "@types/react-dom": "~0.14.23",
+    "bootstrap": "~3.3.7"
+  },
+  "devDependencies": {
+    "typescript": "~2.2.1",
+    "webpack": "~2.2.1",
+    "webpack-dev-server": "~2.4.2",
+    "webpack-merge": "~4.1.0",
+    "ts-node": "~2.0.0",
+    "@types/node": "~6.0.60",
+    "tslint": "~4.4.2",
+    "ts-loader": "~2.0.2",
+    "tslint-loader": "~3.4.3",
+    "source-map-loader": "~0.2.0",
+    "style-loader": "~0.16.0",
+    "css-loader": "~0.27.3",
+    "url-loader": "~0.5.8",
+    "file-loader": "~0.10.1",
+    "less-loader": "~4.0.2",
+    "less": "~2.7.2",
+    "html-webpack-plugin": "~2.28.0",
+    "extract-text-webpack-plugin":"~2.1.0",
+    "rimraf": "~2.6.1",
+
+    "karma": "~1.5.0",
+    "karma-cli": "~1.0.1",
+    "karma-jasmine": "~1.1.0",
+    "phantomjs-prebuilt": "~2.1.14",
+    "karma-phantomjs-launcher": "~1.0.4",
+    "karma-sourcemap-loader": "~0.3.7",
+    "karma-webpack": "~2.0.3",
+    "jasmine-core": "~2.5.2",
+    "@types/jasmine": "~2.5.46",
+    "karma-mocha-reporter": "~2.2.3",
+    "react-addons-test-utils": "~15.4.2",
+    "@types/react-addons-test-utils": "~0.14.17"
   }
 }
